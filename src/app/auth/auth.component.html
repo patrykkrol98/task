@@ -1,0 +1,13 @@
+<div class="container">
+    <ng-template #auth>
+        <mat-tab-group [(selectedIndex)]="selectedTab" animationDuration="0ms" mat-align-tabs="center">
+            <mat-tab label="Zaloguj">
+                <app-login (forgotPasswordFlag)="forgotPassword($event)"></app-login>
+            </mat-tab>
+            <mat-tab label="Zarejestruj">
+                <app-register (tabChange)="changeTab($event)"></app-register>
+            </mat-tab>
+        </mat-tab-group>
+    </ng-template>
+    <app-forgot-password (forgotPasswordFlag)="forgotPassword($event)" *ngIf="forgotPasswordMode;else auth"></app-forgot-password>
+</div>

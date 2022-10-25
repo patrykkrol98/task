@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+    <div class="form-container">
+            <mat-form-field>
+                <input id="email" type="text" matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+        <p>
+            <mat-form-field>
+                <input id="password" type="password" autocomplete="on" matInput placeholder="Hasło"
+                    formControlName="password" />
+                <mat-error>Hasło musi składać się minimum 1 cyfry, 1 małej litery, 1 dużej litery i co najmniej 8 znaków
+                </mat-error>
+            </mat-form-field>
+            <mat-progress-bar mode="determinate" value="{{passwordStrength}}"></mat-progress-bar>
+            <label>Siła hasła</label>
+        </p>
+        <p>
+            <mat-form-field>
+                <input id="confirm_password" type="password" autocomplete="on" matInput placeholder="Powtórz hasło"
+                formControlName="confirmPassword" />
+                <mat-error>Hasła muszą być identyczne</mat-error>
+            </mat-form-field>
+            </p>
+            <button mat-raised-button>Zarejestruj</button>
+    </div>
+</form>

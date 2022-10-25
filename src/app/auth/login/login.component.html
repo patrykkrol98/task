@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <div class="form-container">
+        <p>
+            <mat-form-field>
+                <input id="email" type="text" matInput placeholder="Email" formControlName="email" />
+            </mat-form-field>
+        </p>
+        <p class="password-form-container">
+            <mat-form-field>
+                <input id="password" type="password" autocomplete="on" matInput placeholder="Hasło"
+                    formControlName="password" />
+            </mat-form-field>
+            <button class="reset-button" type="button" (click)="toForgotPassword()" mat-button>Zresetuj hasło</button>
+        </p>
+        <div [ngSwitch]="loginState">
+            <div *ngSwitchCase="200">
+                <mat-hint style="color: seagreen">Logowanie przebiegło pomyślnie!</mat-hint>
+            </div>
+            <div *ngSwitchCase="401">
+                <mat-error>Błędny email lub hasło!</mat-error>
+            </div>
+        </div>
+        <button class="login-button" mat-raised-button type="submit">Zaloguj</button>
+    </div>
+</form>
